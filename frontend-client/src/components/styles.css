@@ -1,0 +1,48 @@
+.messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  src/components/styles.css
+
+.chat-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 5px 10px;
+  border-width: 5px;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-family: 'Work sans', sans-serif;
+}
+
+.search-input {
+  margin: 1rem;
+}
+
+.notification-icon {
+  font-size: 2xl;
+  margin: 1rem;
+}
+
+.user-list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-avatar {
+  margin-right: 1rem;
+}
