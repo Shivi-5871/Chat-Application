@@ -25,13 +25,13 @@ Frontend: React.js, Context API
 
 Backend: Node.js, Express.js
 
-Database: MongoDB (Mongoose ODM)
+Database: MongoDB
 
 Image Hosting: Cloudinary
 
 Authentication: JWT (JSON Web Token)
 
-Styling: CSS / Tailwind (if used)
+Styling: CSS / Tailwind
 
 # ⚙️ Installation & Setup
 1️⃣ Clone the repository
