@@ -36,6 +36,7 @@ Styling: CSS / Tailwind
 # ⚙️ Installation & Setup
 1️⃣ Clone the repository
 git clone https://github.com/Shivi-5871/Chat-Application.git
+
 cd chat-application
 
 2️⃣ Install dependencies
