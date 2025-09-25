@@ -1,3 +1,5 @@
+// backend/routes/chatRoutes.js
+
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
 const { accessChat, fetchChats, createGroupChat, renameGroup, addToGroup, removeFromGroup } = require('../controllers/chatController');
@@ -12,6 +14,3 @@ router.route("/groupremove").put(protect, removeFromGroup);
 router.route("/groupadd").put(protect, addToGroup);
 
 module.exports = router;
-
-
-
