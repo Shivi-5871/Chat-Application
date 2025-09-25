@@ -1,3 +1,4 @@
+//frontend-client/src/pages/Chatpage.js
 import { Box } from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider";
 import SideDrawer from "../components/miscellaneous/SideDrawer";
