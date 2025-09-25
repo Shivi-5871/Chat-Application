@@ -1,3 +1,5 @@
+// frontend-client/src/components/SingleChat.js
+
 import React, { useEffect, useState } from 'react';
 import { ChatState } from '../Context/ChatProvider';
 import { Box, FormControl, IconButton, Input, Spinner, Text, useToast } from '@chakra-ui/react';
@@ -5,14 +7,15 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import { getSender, getSenderFull } from '../config/ChatLogics';
 import ProfileModal from './miscellaneous/ProfileModal';
 import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal';
-import axios from 'axios';
+// import axios from 'axios';
 import './styles.css';
 import ScrollableChat from './ScrollableChat';
 import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from '../animations/typing.json';
+import API from '../api';
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = process.env.REACT_APP_API_URL || "http://localhost:5000"; 
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -44,7 +47,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/message/${selectedChat._id}`, config);
+      // const { data } = await axios.get(`/api/message/${selectedChat._id}`, config);
+      const { data } = await API.get(`/api/message/${selectedChat._id}`, config);
       setMessages(data);
       setLoading(false);
       socket.emit("join chat", selectedChat._id);
@@ -101,7 +105,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
         };
         setNewMessage("");
-        const { data } = await axios.post(
+        // const { data } = await axios.post(
+        const { data } = await API.post(
           "/api/message",
           {
             content: newMessage,
