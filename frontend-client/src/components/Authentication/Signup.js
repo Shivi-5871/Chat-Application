@@ -1,6 +1,9 @@
+// frontend-client/src/components/Authentication/Signup.js
+
 import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, useToast, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import axios from "axios";
+import API from "../../api";
 import { useNavigate } from "react-router-dom"; // Changed this line
 
 const Signup = () => {
@@ -47,7 +50,8 @@ const Signup = () => {
                     "Content-type": "application/json",
                 },
             };
-            const { data } = await axios.post(
+            // const { data } = await axios.post(
+            const { data } = await API.post(
                 "/api/user",
                 {
                     name,
