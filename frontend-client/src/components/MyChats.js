@@ -1,11 +1,14 @@
+// frontend-client/src/components/MyChats.js
+
 import React, { useEffect, useState } from 'react'
 import { ChatState } from '../Context/ChatProvider';
 import { Box, Button, Stack, Text, useToast } from '@chakra-ui/react';
-import axios from 'axios';
+// import axios from 'axios';
 import { AddIcon } from '@chakra-ui/icons';
 import ChatLoading from './ChatLoading';
 import { getSender} from '../config/ChatLogics';
 import GroupChatModal from './miscellaneous/GroupChatModal';
+import API from '../api';
 
 const MyChats = ({ fetchAgain }) => {
 
@@ -22,7 +25,8 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      // const { data } = await axios.get("/api/chat", config);
+      const { data } = await API.get("/api/chat", config);
       console.log(data);
       setChats(data);
     } catch (error) {
