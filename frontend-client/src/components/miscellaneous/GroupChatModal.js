@@ -1,5 +1,8 @@
+// frontend-client/src/components/miscellaneous/GroupChatModal.js
+
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, Box, ModalCloseButton, Button, useDisclosure, FormControl, Input, useToast} from "@chakra-ui/react";
-import axios from "axios";
+// import axios from "axios";
+import API from "../../api";
 import { useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import UserListItem from "../UserAvatar/UserListItem";
@@ -52,7 +55,8 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      // const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await API.get(`/api/user?search=${search}`, config);
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -89,7 +93,8 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(
+      // const { data } = await axios.post(
+      const { data } = await API.post(
         `/api/chat/group`,
         {
           name: groupChatName,
