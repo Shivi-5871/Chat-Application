@@ -1,7 +1,10 @@
+// frontend-client/src/components/Authentication/Login.js
+
 import React, { useState } from 'react';
 import { VStack, Button, FormControl, FormLabel, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API from '../../api';
 import { useToast } from '@chakra-ui/react';
 
 const Login = () => {
@@ -35,7 +38,8 @@ const Login = () => {
         },
       };
 
-      const { data } = await axios.post("/api/user/login", { email, password }, config);
+      // const { data } = await axios.post("/api/user/login", { email, password }, config);
+      const { data } = await API.post("/api/user/login", { email, password }, config);
 
       toast({
         title: "Login Successful",
